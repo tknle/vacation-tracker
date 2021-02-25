@@ -1,0 +1,66 @@
+﻿@model leave_management.Models.CreateLeaveRequestVM
+
+@{ ViewData["Title"] = "Create"; }
+
+<h1>Vacation Request Form</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LeaveTypeId" class="control-label"></label>
+                @Html.DropDownListFor(q => q.LeaveTypeId, new SelectList(Model.LeaveTypes, "Value", "Text"), "Select Leave Type", new { @class = "form-control" })
+                <span asp-validation-for="LeaveTypeId" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="StartDate" class="control-label"></label>
+                        <input asp-for="StartDate" class="form-control datepicker" />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="EndDate" class="control-label"></label>
+                        <input asp-for="EndDate" class="form-control datepicker" />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input id="HalfDayOff" type="checkbox" value="true" name="HalfDayOff" />
+                <input type="hidden" value="false" name="Take Half Day Off" />
+                <label for="HalfDayOff">Take Half Day Off</label><br>
+            </div>
+            <div>
+                <p class=" text-start fw-normal lh-lg">* If I decide to leave Naylor and I have taken more vacation than I have earned, I hereby authorize Naylor to deduct the value of any paid vacation which I have taken in excess of my earned vacation from my final payment.</p>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestComments" class="control-label"></label>
+                <textarea asp-for="RequestComments" class="form-control" /> </textarea>
+                <span asp-validation-for="RequestComments" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Request Leave" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-block btn-outline-dark">Back to List</a>
+</div>
+
+@section Scripts{
+    <script>
+        $(function () {
+            $(".datepicker").datepicker({
+                dateFormat: "yy-mm-dd"
+            });
+        });
+    </script>
+}

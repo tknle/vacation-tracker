@@ -1,0 +1,126 @@
+﻿@model IEnumerable<leave_management.Models.EmployeeVM>
+
+@{
+    ViewData["Title"] = "ListEmployees";
+}
+
+<h1>List Employees</h1>
+
+@*<p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+<table id="tblData" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+
+            @*<th>
+                    @html.displaynamefor(model => model.taxid)
+                </th>
+                <th>
+                    @html.displaynamefor(model => model.dateofbirth)
+                </th>
+                <th>
+                    @html.displaynamefor(model => model.startdate)
+                </th>
+                <th>
+                    @html.displaynamefor(model => model.employeeclass)
+                </th>
+                <th>
+                    @html.displaynamefor(model => model.inactive)
+                </th>
+                <th>
+                    @html.displaynamefor(model => model.department)
+                </th>
+                <th>
+                    @html.displaynamefor(model => model.manager)
+
+                </th>
+                <th>
+                    @html.displaynamefor(model => model.office)
+                </th>
+                <th>
+                    @html.displaynamefor(model => model.typeofemp)
+                </th>
+                <th>
+                    @html.displaynamefor(model => model.hrstatus)
+                </th>
+                <th>
+                    @html.displaynamefor(model => model.title)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.VacationEntitlement)
+            </th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaxId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOfBirth)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeClass)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Inactive)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Manager)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Office)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TypeOfEmp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HRStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.VacationEntitlement)
+                </td>
+                <td>
+
+                    <a class="btn btn-outline-success" asp-action="details" asp-route-id="@item.Id">
+                        <i class="fa fa-search"></i> details
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
